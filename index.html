@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiraya Skin — Skincare Made for You, Made for Here</title>
+  <meta name="description" content="Filipino skincare formulated for morena skin. Dermatologist tested, no harmful chemicals, made for you." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Homepage-specific ── */
+
+    /* Hero */
+    .hero {
+      padding: 6rem 0 5rem;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--blush);
+      border-radius: 2px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-trust {
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .hero-trust-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blush);
+      flex-shrink: 0;
+    }
+
+    /* Hero image column */
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242, 196, 176, 0.35), transparent 65%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-img {
+      aspect-ratio: 3 / 4;
+      background: #ede8e0;
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 20%, rgba(242, 196, 176, 0.3), transparent 55%),
+        radial-gradient(ellipse at 75% 80%, rgba(45, 80, 22, 0.08), transparent 55%);
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(45, 80, 22, 0.06), transparent);
+    }
+
+    .hero-img-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 2;
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.625rem 0.875rem;
+    }
+    .hero-img-label-name {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .hero-img-label-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* Brand strip */
+    .brand-strip {
+      background: var(--green);
+      padding: 1.125rem 2rem;
+    }
+    .brand-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .strip-item {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.02em;
+      padding: 0.25rem 0;
+    }
+    .strip-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(242, 196, 176, 0.7);
+      margin: 0 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* Featured products */
+    .featured { padding: 5.5rem 0; }
+
+    .featured-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .featured-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: rgba(45,80,22,0.3);
+      transition: text-decoration-color var(--transition);
+    }
+    .featured-link:hover { text-decoration-color: var(--green); }
+
+    /* Value strip */
+    .values-strip {
+      background: var(--blush-dim);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3.25rem 2rem;
+    }
+    .values-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .value-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .value-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .value-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .value-desc {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Responsive hero */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-image-wrap { order: -1; max-width: 420px; margin: 0 auto; width: 100%; }
+      .hero-img { aspect-ratio: 4 / 3; }
+      .hero { padding: 3.5rem 0 3rem; }
+      .hero h1 { font-size: clamp(2.25rem, 7vw, 3rem); }
+      .hero-sub { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .strip-sep { margin: 0 1rem; }
+      .values-strip-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">Hiraya Skin</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left: text -->
+        <div class="hero-text">
+          <div class="hero-eyebrow">Proudly Filipino</div>
+          <h1>Skincare made for you,<br>made for <em>here.</em></h1>
+          <p class="hero-sub">
+            Formulated for Filipino skin. Dermatologist tested.
+            No harmful chemicals — just ingredients that actually work for you.
+          </p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+            <a href="about.html" class="btn btn-outline">Our Story</a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <span class="hero-trust-dot"></span>
+              Dermatologist Tested
+            </div>
+            <div class="hero-trust-item">
+              <span class="hero-trust-dot"></span>
+              No Harmful Chemicals
+            </div>
+            <div class="hero-trust-item">
+              <span class="hero-trust-dot"></span>
+              Cruelty Free
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: image -->
+        <div class="hero-image-wrap">
+          <div class="hero-img">
+            <img src="brand_products/Homepage hero.png" alt="Hiraya Skin hero" style="width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;" />
+            <div class="hero-img-label">
+              <div class="hero-img-label-name">HS-001 Glow Serum</div>
+              <div class="hero-img-label-sub">Best Seller · ₱699</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND STRIP -->
+  <div class="brand-strip">
+    <div class="brand-strip-inner">
+      <span class="strip-item">Dermatologist Tested</span>
+      <span class="strip-sep" aria-hidden="true"></span>
+      <span class="strip-item">No Harmful Chemicals</span>
+      <span class="strip-sep" aria-hidden="true"></span>
+      <span class="strip-item">Made for Filipino Skin</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="featured">
+    <div class="container">
+      <div class="featured-header">
+        <h2 class="section-heading" style="margin-bottom:0">Best Sellers</h2>
+        <a href="shop.html" class="featured-link">View all products →</a>
+      </div>
+
+      <div class="product-grid">
+
+        <!-- Card 1 -->
+        <article class="product-card">
+          <div class="product-card-img"><img src="brand_products/HS-001 Glow Serum.png" alt="Glow Serum" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-001</div>
+            <div class="product-card-name">Glow Serum</div>
+            <span class="badge badge-blush">Serum</span>
+            <div class="product-card-row">
+              <span class="product-card-price">₱699</span>
+              <a href="shop.html" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="product-card">
+          <div class="product-card-img"><img src="brand_products/HS-003 Moisture Bomb Cream.png" alt="Moisture Bomb Cream" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-003</div>
+            <div class="product-card-name">Moisture Bomb Cream</div>
+            <span class="badge badge-blush">Moisturizer</span>
+            <div class="product-card-row">
+              <span class="product-card-price">₱549</span>
+              <a href="shop.html" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="product-card">
+          <div class="product-card-img"><img src="brand_products/HS-004 SPF 50 Daily Shield.png" alt="SPF 50 Daily Shield" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-004</div>
+            <div class="product-card-name">SPF 50 Daily Shield</div>
+            <span class="badge badge-blush">Sunscreen</span>
+            <div class="product-card-row">
+              <span class="product-card-price">₱499</span>
+              <a href="shop.html" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <div class="values-strip">
+    <div class="values-strip-inner">
+      <div class="value-item">
+        <div class="value-icon">🌿</div>
+        <div class="value-title">Clean Ingredients</div>
+        <div class="value-desc">Every formula is free from parabens, sulfates, and harmful additives.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🇵🇭</div>
+        <div class="value-title">Made for Here</div>
+        <div class="value-desc">Designed for the Philippine climate and morena skin tones.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">✨</div>
+        <div class="value-title">Affordable Luxury</div>
+        <div class="value-desc">Dermatologist-level skincare at prices that make sense for everyday use.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Hiraya Skin</div>
+        <p class="footer-blurb">
+          Filipino skincare formulated for morena skin. We believe great skin shouldn't cost a fortune — just the right ingredients.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Hiraya Skin. All rights reserved.</span>
+      <a href="mailto:support@hirayaskin.ph" class="footer-bottom-email">support@hirayaskin.ph</a>
+    </div>
+  </footer>
+
+  <script src="widget.js"></script>
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('open');
+      const open = links.classList.contains('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>

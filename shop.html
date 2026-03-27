@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Hiraya Skin</title>
+  <meta name="description" content="Shop all Hiraya Skin products. Serums, cleansers, moisturizers, sunscreens, and more — formulated for Filipino skin." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .shop-header {
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
+    .shop-header-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .shop-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+    }
+    .shop-count {
+      font-size: 0.875rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .shop-sub {
+      margin-top: 0.75rem;
+      font-size: 0.9375rem;
+      color: var(--muted);
+    }
+
+    .shop-body {
+      padding: 3rem 0 5rem;
+    }
+
+    /* Category filter pills */
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.25rem;
+    }
+    .filter-btn {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+    .filter-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .filter-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--white);
+    }
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">Hiraya Skin</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- SHOP HEADER -->
+  <div class="shop-header">
+    <div class="container">
+      <div class="shop-header-top">
+        <h1 class="shop-title">Shop All Products</h1>
+        <span class="shop-count">10 products</span>
+      </div>
+      <p class="shop-sub">Formulated for Filipino skin · Dermatologist tested · No harmful chemicals</p>
+    </div>
+  </div>
+
+  <!-- SHOP BODY -->
+  <section class="shop-body">
+    <div class="container">
+
+      <!-- Filter pills -->
+      <div class="filter-row" role="group" aria-label="Filter by category">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="Serum">Serums</button>
+        <button class="filter-btn" data-cat="Cleanser">Cleansers</button>
+        <button class="filter-btn" data-cat="Moisturizer">Moisturizers</button>
+        <button class="filter-btn" data-cat="Sunscreen">Sunscreen</button>
+        <button class="filter-btn" data-cat="Toner">Toners</button>
+        <button class="filter-btn" data-cat="Eye Care">Eye Care</button>
+        <button class="filter-btn" data-cat="Bundle">Bundles</button>
+      </div>
+
+      <!-- Product grid -->
+      <div class="product-grid" id="productGrid">
+
+        <!-- HS-001 Glow Serum -->
+        <article class="product-card" data-cat="Serum">
+          <div class="product-card-img"><img src="brand_products/HS-001 Glow Serum.png" alt="Glow Serum" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-001</div>
+            <div class="product-card-name">Glow Serum</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Serum</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱699</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-002 Calm Cleanser -->
+        <article class="product-card" data-cat="Cleanser">
+          <div class="product-card-img"><img src="brand_products/HS-002 Calm Cleanser.png" alt="Calm Cleanser" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-002</div>
+            <div class="product-card-name">Calm Cleanser</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Cleanser</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱349</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-003 Moisture Bomb Cream -->
+        <article class="product-card" data-cat="Moisturizer">
+          <div class="product-card-img"><img src="brand_products/HS-003 Moisture Bomb Cream.png" alt="Moisture Bomb Cream" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-003</div>
+            <div class="product-card-name">Moisture Bomb Cream</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Moisturizer</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱549</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-004 SPF 50 Daily Shield -->
+        <article class="product-card" data-cat="Sunscreen">
+          <div class="product-card-img"><img src="brand_products/HS-004 SPF 50 Daily Shield.png" alt="SPF 50 Daily Shield" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-004</div>
+            <div class="product-card-name">SPF 50 Daily Shield</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Sunscreen</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱499</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-005 Retinol Night Repair -->
+        <article class="product-card" data-cat="Serum">
+          <div class="product-card-img"><img src="brand_products/HS-005 Retinol Night Repair.png" alt="Retinol Night Repair" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-005</div>
+            <div class="product-card-name">Retinol Night Repair</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Serum</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱899</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-006 BHA Exfoliant Toner — OUT OF STOCK -->
+        <article class="product-card" data-cat="Toner">
+          <div class="product-card-img oos-img">
+            <img src="brand_products/HS-006 BHA Exfoliant Toner.png" alt="BHA Exfoliant Toner" />
+            <div class="oos-overlay"><span>Out of Stock</span></div>
+          </div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-006</div>
+            <div class="product-card-name">BHA Exfoliant Toner</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Toner</span>
+              <span class="badge badge-red">Out of Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱449</span>
+              <span class="product-card-link" style="color:var(--muted); text-decoration:none; cursor:default; font-size:0.8125rem;">Unavailable</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-007 Niacinamide Drops -->
+        <article class="product-card" data-cat="Serum">
+          <div class="product-card-img"><img src="brand_products/HS-007 Niacinamide Drops.png" alt="Niacinamide Drops" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-007</div>
+            <div class="product-card-name">Niacinamide Drops</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Serum</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱599</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-008 Moringa Eye Cream -->
+        <article class="product-card" data-cat="Eye Care">
+          <div class="product-card-img"><img src="brand_products/HS-008 Moringa Eye Cream.png" alt="Moringa Eye Cream" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-008</div>
+            <div class="product-card-name">Moringa Eye Cream</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Eye Care</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱749</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-009 Starter Kit -->
+        <article class="product-card" data-cat="Bundle">
+          <div class="product-card-img"><img src="brand_products/HS-009 Starter Kit.png" alt="Starter Kit" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-009</div>
+            <div class="product-card-name">Starter Kit</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Bundle</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱1,199</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- HS-010 Glow Bundle -->
+        <article class="product-card" data-cat="Bundle">
+          <div class="product-card-img"><img src="brand_products/HS-010 Glow Bundle.png" alt="Glow Bundle" /></div>
+          <div class="product-card-body">
+            <div class="product-sku">HS-010</div>
+            <div class="product-card-name">Glow Bundle</div>
+            <div style="display:flex; gap:0.4rem; align-items:center; margin-top:0.35rem; flex-wrap:wrap;">
+              <span class="badge badge-blush">Bundle</span>
+              <span class="badge badge-green">In Stock</span>
+            </div>
+            <div class="product-card-row">
+              <span class="product-card-price">₱1,599</span>
+              <a href="#" class="product-card-link">View Product</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /product-grid -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Hiraya Skin</div>
+        <p class="footer-blurb">
+          Filipino skincare formulated for morena skin. We believe great skin shouldn't cost a fortune — just the right ingredients.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Hiraya Skin. All rights reserved.</span>
+      <a href="mailto:support@hirayaskin.ph" class="footer-bottom-email">support@hirayaskin.ph</a>
+    </div>
+  </footer>
+
+  <script src="widget.js"></script>
+  <script>
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // Category filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards       = document.querySelectorAll('#productGrid .product-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        cards.forEach(card => {
+          const show = cat === 'all' || card.dataset.cat === cat;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

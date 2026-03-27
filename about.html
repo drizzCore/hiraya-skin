@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — Hiraya Skin</title>
+  <meta name="description" content="The story behind Hiraya Skin — Filipino skincare born from a founder who couldn't find products made for her morena skin." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    /* ── About hero ── */
+    .about-hero {
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242, 196, 176, 0.25), transparent 65%);
+      pointer-events: none;
+    }
+    .about-hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .about-hero h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+      max-width: 640px;
+    }
+
+    /* Story grid */
+    .story-section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .story-img {
+      background: #ede8e0;
+      aspect-ratio: 3 / 4;
+      border-radius: var(--radius-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    .story-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 25%, rgba(242, 196, 176, 0.25), transparent 55%),
+        radial-gradient(ellipse at 70% 75%, rgba(45, 80, 22, 0.06), transparent 55%);
+    }
+
+    .story-label {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    .story-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .story-text h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .story-text p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .story-text .founder-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 0.5rem;
+    }
+    .founder-tag::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 1.5px;
+      background: var(--green);
+    }
+
+    /* Values section */
+    .values-section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .values-section .section-heading { margin-bottom: 2.5rem; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .value-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .value-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--blush-dim);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .value-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.625rem;
+      letter-spacing: -0.01em;
+    }
+    .value-card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* Badges row */
+    .badges-section {
+      padding: 3.5rem 0 5rem;
+      border-top: 1px solid var(--border);
+    }
+    .badges-section .section-heading { margin-bottom: 1.75rem; }
+    .badges-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .badge-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green-dim);
+      border: 1.5px solid rgba(45, 80, 22, 0.2);
+      border-radius: 100px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--green);
+    }
+    .badge-large-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .story-img { aspect-ratio: 4 / 3; max-width: 480px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .about-hero { padding: 3.5rem 0 3rem; }
+      .story-section, .values-section { padding: 3.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">Hiraya Skin</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+          <line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-eyebrow">Our Story</div>
+      <h1>Skincare built from<br>a personal need.</h1>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+
+        <div class="story-img">
+          <img src="brand_products/About page founder.png" alt="Hiraya Skin founder" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <div class="story-label">Founded 2022 · Manila, PH</div>
+        </div>
+
+        <div class="story-text">
+          <h2>She couldn't find skincare made for her.</h2>
+          <p>
+            Hiraya Skin was born from a simple frustration. Our founder, Maria Santos, spent years searching for skincare that actually worked on her morena complexion — products that understood the Philippine heat, the humidity, and the beauty of deeper skin tones.
+          </p>
+          <p>
+            Every shelf she browsed was filled with formulas designed for cooler climates, lighter skin, or dramatically higher budgets. She decided to stop looking and start building.
+          </p>
+          <p>
+            Working alongside Filipino dermatologists, Maria developed a line of clean, effective, and affordable skincare — tested specifically on morena and mixed skin, in Manila's real climate. No lab-perfect conditions. No European benchmarks. Just what works, here.
+          </p>
+          <p>
+            <em>"Hiraya"</em> means "the fruit of one's hope and dreams" in Filipino. It felt right.
+          </p>
+          <span class="founder-tag">Maria Santos, Founder & CEO</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES SECTION -->
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-heading">What we stand for</h2>
+      <div class="values-grid">
+
+        <div class="value-card">
+          <div class="value-card-icon">🌿</div>
+          <div class="value-card-title">Clean Ingredients</div>
+          <p class="value-card-desc">
+            Every formula is free from parabens, sulfates, artificial dyes, and known irritants. We publish full ingredient lists because we have nothing to hide.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-icon">🇵🇭</div>
+          <div class="value-card-title">Local Pride</div>
+          <p class="value-card-desc">
+            Formulated in the Philippines, for the Philippines. Our products are tested on Filipino skin types in Filipino weather — not adapted from foreign formulas.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card-icon">✨</div>
+          <div class="value-card-title">Affordable Luxury</div>
+          <p class="value-card-desc">
+            Dermatologist-level skincare shouldn't require a dermatologist's budget. We keep our formulas premium and our prices real — starting at ₱349.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BADGES ROW -->
+  <section class="badges-section">
+    <div class="container">
+      <h2 class="section-heading">Our commitments</h2>
+      <div class="badges-row">
+        <span class="badge-large"><span class="badge-large-dot"></span>Dermatologist Tested</span>
+        <span class="badge-large"><span class="badge-large-dot"></span>Cruelty Free</span>
+        <span class="badge-large"><span class="badge-large-dot"></span>Proudly Filipino</span>
+        <span class="badge-large"><span class="badge-large-dot"></span>No Harmful Chemicals</span>
+        <span class="badge-large"><span class="badge-large-dot"></span>Paraben Free</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Hiraya Skin</div>
+        <p class="footer-blurb">
+          Filipino skincare formulated for morena skin. We believe great skin shouldn't cost a fortune — just the right ingredients.
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2025 Hiraya Skin. All rights reserved.</span>
+      <a href="mailto:support@hirayaskin.ph" class="footer-bottom-email">support@hirayaskin.ph</a>
+    </div>
+  </footer>
+
+  <script src="widget.js"></script>
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+  </script>
+</body>
+</html>
