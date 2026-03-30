@@ -509,7 +509,9 @@ if (!sessionId) {
         reply = data;
       } else if (data.reply) {
         reply = data.reply;
-      } else if (data.message) {
+      } else if (data.message && typeof data.message === 'object' && data.message.content) {
+        reply = data.message.content;
+      } else if (data.message && typeof data.message === 'string') {
         reply = data.message;
       } else if (data.output) {
         reply = data.output;
