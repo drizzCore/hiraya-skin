@@ -4,11 +4,11 @@
  * Replace WEBHOOK_URL with your actual n8n webhook endpoint.
  */
 
-const WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL';
+const WEBHOOK_URL = 'http://localhost:5678/webhook/hiraya-chat';
 
 // ─── Session ID ─────────────────────────────────────────────
 function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     const r = Math.random() * 16 | 0;
     const v = c === 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
@@ -372,18 +372,18 @@ if (!sessionId) {
 
 // ─── Widget Logic ────────────────────────────────────────────
 (function initWidget() {
-  const btn        = document.getElementById('hs-widget-btn');
-  const panel      = document.getElementById('hs-widget-panel');
-  const closeBtn   = document.getElementById('hs-panel-close');
-  const messages   = document.getElementById('hs-messages');
-  const input      = document.getElementById('hs-input');
-  const sendBtn    = document.getElementById('hs-send');
-  const typing     = document.getElementById('hs-typing');
-  const badge      = document.getElementById('hs-widget-badge');
+  const btn = document.getElementById('hs-widget-btn');
+  const panel = document.getElementById('hs-widget-panel');
+  const closeBtn = document.getElementById('hs-panel-close');
+  const messages = document.getElementById('hs-messages');
+  const input = document.getElementById('hs-input');
+  const sendBtn = document.getElementById('hs-send');
+  const typing = document.getElementById('hs-typing');
+  const badge = document.getElementById('hs-widget-badge');
 
-  let isOpen       = false;
-  let hasGreeted   = false;
-  let isWaiting    = false;
+  let isOpen = false;
+  let hasGreeted = false;
+  let isWaiting = false;
 
   // ── Helpers ──
   function getTime() {
